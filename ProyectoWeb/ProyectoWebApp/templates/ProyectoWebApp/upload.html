@@ -1,0 +1,11 @@
+{% extends "ProyectoWebApp/base.html" %}
+{% block content %}
+    <h2>Carga</h2>
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <input type="file" name="Documento">
+        <button type="submit">Cargar archivo</button>
+    </form>
+    {% if url %}
+        <p>Archivo por cargar: <a href="{{ url }}">{{ url }}</a></p>
+    {% endif %}
+{% endblock %}

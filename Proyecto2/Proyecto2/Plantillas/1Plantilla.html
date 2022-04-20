@@ -1,0 +1,29 @@
+<html>
+    <body>
+        {% include "superior/barra.html" %}
+    <h1>
+    Hola mundo!!!
+    </h1>
+    {% if nombre_persona == 'Maicol Estiven' %}
+    <p>Yo soy Maicol</p>
+    {% else %}
+    <p>No es Maicol >:u</p>
+    {% endif %}
+
+    <p>El nombre del men es: {{nombre_persona.upper}} {{apellido_persona.upper}}.<br>
+    En la fecha {{ahora.day}} / {{ahora.month}} / {{ahora.year}}</p>
+    <p><b>Temas del curso:</b></p>
+    <p>
+    <ul>
+    {% if Temas%}
+        {% for 1_Tema in Temas %}
+        <li>{{1_Tema}}</li>
+
+        {% endfor %}
+    {% else %}
+    <p>No hay elementos que mostrar</p>
+    {% endif %}
+    </ul>
+    </p>
+    </body>
+</html>
