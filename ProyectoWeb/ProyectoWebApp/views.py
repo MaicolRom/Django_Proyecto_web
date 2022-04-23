@@ -5,6 +5,7 @@ from .models import Persona
 from django.http import HttpResponse
 import os
 
+
 # Create your views here.
 def home(request):
     return render(request, 'ProyectoWebApp/upload.html')
