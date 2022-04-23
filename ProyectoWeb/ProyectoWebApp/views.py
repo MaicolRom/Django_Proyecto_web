@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.files.storage import FileSystemStorage
 from .forms import personaForm
+from .models import Persona
 from django.http import HttpResponse
 import os
-
 # Create your views here.
 def home(request):
     return render(request, 'ProyectoWebApp/upload.html')
@@ -19,11 +19,23 @@ def upload(request):
     return render(request, 'ProyectoWebApp/upload.html', context)
 
 def lista_personas(request):
-    return render(request, 'ProyectoWebApp/lista_personas.html')
-
-def carga_personas(request):
+    persona=Persona.objects.all()
+    return render(request, 'ProyectoWebApp/lista_personas.html', {
+        'persona':persona
+    })
     form=personaForm()
     return render(request, 'ProyectoWebApp/carga_personas.html', {'form': form})
+
+def carga_personas(request):
+        if request.method == 'POST':
+            form=personaForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_personas')
+        else:
+            form=personaForm
+        return render(request, 'ProyectoWebApp/carga_personas.html', {'form': form})
+
 
 def create_folder(request):
     return render(request, "create_folders.html")
