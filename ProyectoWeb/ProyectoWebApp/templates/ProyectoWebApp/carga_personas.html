@@ -1,14 +1,10 @@
 {% extends 'ProyectoWebApp/base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
     <h2>Carga de personas</h2>
-<<<<<<< HEAD
-    <form>
-        {{form}}
-=======
-    <form method="post" enctype="multipart/form-data" novalidate> 
+    <form method="post" enctype="multipart/form-data"> 
         {{form|crispy}}
         {%  csrf_token %}
         <button type="submit" class="btn btn-primary">Cargar formulario</button>
->>>>>>> c2fb4a25b8909e780c2740b6ad619bea7422a03d
     </form>
 {% endblock %}
