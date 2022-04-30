@@ -1,4 +1,29 @@
 {% extends 'ProyectoWebApp/base.html' %}
 {% block content %}
     <h2>Personas</h2>
+<<<<<<< HEAD
+=======
+    <p>
+        <a href="{% url 'carga_personas' %}" class="btn btn-primary" >Cargar persona</a>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Cedula</th>
+                <th>Descarga</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Personas in persona %}
+                <tr>
+                    <td>{{ Personas.nombre }}</td>
+                    <td>{{ Personas.cedula }}</td>
+                    <td><a href="{{ Personas.url}}" class="btn btn-primary btn-sm " target="_blanck"> Descargar archivo</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+>>>>>>> c2fb4a25b8909e780c2740b6ad619bea7422a03d
 {% endblock %}
